@@ -12,7 +12,7 @@
 
 // Kalibracje dla r�nych sensor�w
 float kalibracjaSHT45 = -0.1;
-float kalibracjaPT100 = 0.35;
+float kalibracjaPT100 = 0.37;
 float kalibracjaDS18_1 = 0;
 float kalibracjaDS18_2 = 0.1;
 
