@@ -11,7 +11,7 @@
 //#define DEBUG ON
 
 // Kalibracje dla r�nych sensor�w
-float kalibracjaSHT45 = 0.1;
+float kalibracjaSHT45 = -0.1;
 float kalibracjaPT100 = 0.35;
 float kalibracjaDS18_1 = 0;
 float kalibracjaDS18_2 = 0.1;
@@ -650,13 +650,13 @@ void GetSHTReadings()
 			totalHum = totalHum + humidity[i];
 		}
 
-		SHTtempRead = (totalTemp / SHT_READ_COUNT) - kalibracjaSHT45;
+		SHTtempRead = (totalTemp / SHT_READ_COUNT) + kalibracjaSHT45;
     SHTtempReadF = (SHTtempRead * 9.0 / 5.0) + 32.0;
 		SHThumRead = totalHum / SHT_READ_COUNT;
 	}
 	else
 	{
-		SHTtempRead = sTemp.temperature - kalibracjaSHT45;
+		SHTtempRead = sTemp.temperature + kalibracjaSHT45;
     SHTtempReadF = (SHTtempRead * 9.0 / 5.0) + 32.0;
 		SHThumRead = sHum.relative_humidity;
 	}
